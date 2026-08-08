@@ -78,10 +78,7 @@ This produces a duty cycle that steps from **0% to 100% with increments of 5%** 
 - **Reset:** held high for the first 20 ns, then deasserted for the remainder of the run.
 - **Run length:** simulation runs for 35,000 ns (35 µs) before calling `$finish`.
 
-At 50 MHz with `PERIOD = 100`, one full PWM period = 100 × 20 ns = **2,000 ns (2 µs)**. The 35 µs test window therefore captures roughly **17 PWM periods**, enough to clearly observe the duty cycle stepping upward across multiple cycles.
-
-> The testbench does not currently include a `$dumpfile`/`$dumpvars` or `$monitor` block — waveforms are viewed directly through the Vivado XSIM waveform viewer after adding signals manually.
-
+At 50 MHz with `PERIOD = 100`, one full PWM period = 100 × 20 ns = **2,000 ns (2 µs)**. The 35 µs test window therefore captures roughly **17 PWM periods**.
 
 ## Simulation Results
 
