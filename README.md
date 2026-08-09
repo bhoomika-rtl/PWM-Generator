@@ -72,7 +72,7 @@ This produces a duty cycle that steps from **0% to 100% with increments of 5%** 
 
 ## Testbench
 
-`pwm_tb.v` instantiates the `pwm` module with default parameters and applies the following stimulus:
+`pwm_tb.v` instantiates the `pwm` module and applies the following stimulus:
 
 - **Clock:** toggled every 10 ns → 20 ns period (**50 MHz**).
 - **Reset:** held high for the first 20 ns, then deasserted for the remainder of the run.
@@ -82,7 +82,7 @@ At 50 MHz with `PERIOD = 100`, one full PWM period = 100 × 20 ns = **2,000 ns (
 
 ## Simulation Results
 
-The waveform below is captured from the Vivado XSIM behavioral simulation, showing `clk`, `rst`, and `pwm_out`. After the initial reset pulse, `pwm_out` starts with a narrow high pulse each period and widens progressively as `ton` steps upward every PWM period, visually confirming the duty-cycle ramp described above.
+The waveform below is captured from the Vivado XSIM behavioral simulation, showing `clk`, `rst`, and `pwm_out`. After the initial reset pulse, `pwm_out` starts with a narrow high pulse each period and widens progressively as `ton` steps upward every PWM period.
 <p align="center">
   <img src="images/pwm_waveform.png">
 </p>
@@ -90,7 +90,6 @@ The waveform below is captured from the Vivado XSIM behavioral simulation, showi
 ## Possible Enhancements
 - Runtime programmable duty cycle (via input port instead of auto-ramp)
 - Variable PWM frequency
-- Enable input
 - AXI/APB interface for SoC integration
 - Testbench improvements: `$dumpfile`/`$dumpvars` for waveform export, and assertions to self-check duty cycle progression
 
